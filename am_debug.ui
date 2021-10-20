@@ -1,0 +1,2536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>953</width>
+    <height>641</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="AmlDebug_tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>941</width>
+      <height>591</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#E6E6E6</string>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="AmlDebugHome_tab">
+     <attribute name="title">
+      <string>Home</string>
+     </attribute>
+     <widget class="QGroupBox" name="AmlHome_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>380</y>
+        <width>911</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Terminal Log</string>
+      </property>
+      <widget class="QTextBrowser" name="AmlHome_textBrowser">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>20</y>
+         <width>911</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:#F8F8F8</string>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOn</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAsNeeded</enum>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QAbstractScrollArea::AdjustToContents</enum>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QListWidget" name="AmlHome_listWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>161</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#F8F8F8</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>adb device</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>multi modules</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QStackedWidget" name="AmlHome_stackedWidget">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>10</y>
+        <width>741</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#F8F8F8</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="lineWidth">
+       <number>1</number>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="Home_adbDevice_page">
+       <widget class="QGroupBox" name="Home_adbDevSelect_groupBox">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>20</y>
+          <width>371</width>
+          <height>301</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>adb device select</string>
+        </property>
+        <widget class="QComboBox" name="Home_adbDevSelect_comboBox">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>30</y>
+           <width>181</width>
+           <height>22</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="Home_adbDevRefresh_btn">
+         <property name="geometry">
+          <rect>
+           <x>210</x>
+           <y>30</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#D5D5D5</string>
+         </property>
+         <property name="text">
+          <string>Refresh</string>
+         </property>
+        </widget>
+        <widget class="QGroupBox" name="Home_adbIpAdress_groupBox">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>190</y>
+           <width>291</width>
+           <height>81</height>
+          </rect>
+         </property>
+         <property name="title">
+          <string>Ip address</string>
+         </property>
+         <widget class="QLineEdit" name="Home_adbIpAdress_lineEdit">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>30</y>
+            <width>131</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>___.___.___.___</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="Home_adbIpConnect_btn">
+          <property name="geometry">
+           <rect>
+            <x>160</x>
+            <y>30</y>
+            <width>101</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color:#D5D5D5</string>
+          </property>
+          <property name="text">
+           <string>Connect</string>
+          </property>
+         </widget>
+        </widget>
+        <widget class="QListView" name="Home_adbDev_listView">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>70</y>
+           <width>291</width>
+           <height>111</height>
+          </rect>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QLabel" name="label_33">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>70</y>
+          <width>141</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_34">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>70</y>
+          <width>71</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>device:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_35">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>40</y>
+          <width>71</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Mode  :</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_36">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>40</y>
+          <width>141</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="Home_mulModules_page">
+       <widget class="QGroupBox" name="Home_modules_groupBox">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>141</width>
+          <height>331</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Modules</string>
+        </property>
+        <widget class="QCheckBox" name="Home_audioModule_checkBox">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>40</y>
+           <width>79</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Audio</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="Home_videoModule_checkBox">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>70</y>
+           <width>79</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Video</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="Home_cecModule_checkBox">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>100</y>
+           <width>79</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Cec</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="Home_sourceModule_checkBox">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>130</y>
+           <width>101</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Source</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="Home_otherModule1_checkBox">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>160</y>
+           <width>79</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Other</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="Home_otherModule2_checkBox">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>190</y>
+           <width>79</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Other</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="Home_otherModule3_checkBox">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>220</y>
+           <width>79</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Other</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="Home_otherModule4_checkBox">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>250</y>
+           <width>79</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Other</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="Home_allModule_checkBox">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>280</y>
+           <width>79</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>All</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="Home_debugOptions_groupBox">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>10</y>
+          <width>141</width>
+          <height>331</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Options</string>
+        </property>
+        <widget class="QCheckBox" name="Home_logcatOption_checkBox">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>40</y>
+           <width>91</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>logcat</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="Home_bugreportOption_checkBox">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>70</y>
+           <width>121</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>bugreport</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="Home_dmsgOption_checkBox">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>100</y>
+           <width>79</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>dmsg</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="Home_otherOption1_checkBox">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>130</y>
+           <width>79</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Other</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="Home_otherOption2_checkBox">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>160</y>
+           <width>79</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Other</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="Home_debugMode_groupBox">
+        <property name="geometry">
+         <rect>
+          <x>290</x>
+          <y>10</y>
+          <width>120</width>
+          <height>111</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Mode</string>
+        </property>
+        <widget class="QRadioButton" name="Home_autoMode_radioButton">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>40</y>
+           <width>102</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Auto</string>
+         </property>
+        </widget>
+        <widget class="QRadioButton" name="Home_menuMode_radioButton">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>70</y>
+           <width>102</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Manual</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="Home_captureTime_groupBox">
+        <property name="geometry">
+         <rect>
+          <x>290</x>
+          <y>130</y>
+          <width>120</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Capture Time</string>
+        </property>
+        <widget class="QWidget" name="layoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>30</y>
+           <width>65</width>
+           <height>25</height>
+          </rect>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QSpinBox" name="Home_captureTime_spinBox"/>
+          </item>
+          <item>
+           <widget class="QLabel" name="time_s_label">
+            <property name="text">
+             <string>S</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+       <widget class="QPushButton" name="Home_startCapture_btn">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>230</y>
+          <width>71</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color:#D5D5D5</string>
+        </property>
+        <property name="text">
+         <string>Start</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="Home_stopCapture_btn">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>280</y>
+          <width>71</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color:#D5D5D5</string>
+        </property>
+        <property name="text">
+         <string>Stop</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_37">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>40</y>
+          <width>141</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_38">
+        <property name="geometry">
+         <rect>
+          <x>447</x>
+          <y>43</y>
+          <width>71</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Mode  :</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_39">
+        <property name="geometry">
+         <rect>
+          <x>447</x>
+          <y>80</y>
+          <width>71</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>device:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_40">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>80</y>
+          <width>141</width>
+          <height>19</height>
+         </rect>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="Home_outputDir_btn">
+        <property name="geometry">
+         <rect>
+          <x>450</x>
+          <y>120</y>
+          <width>201</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color:#D5D5D5</string>
+        </property>
+        <property name="text">
+         <string>Open OutPut Directory</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="AmlDebugAudio_tab">
+     <attribute name="title">
+      <string>Audio</string>
+     </attribute>
+     <widget class="QListWidget" name="AmlAudio_listWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>161</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#F8F8F8</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>Debug Config</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Audio  Play</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QStackedWidget" name="AmlAudio_stackedWidget">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>10</y>
+        <width>741</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#F8F8F8</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="lineWidth">
+       <number>1</number>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="Audio_debugInfo_page">
+       <widget class="QGroupBox" name="Audio_debugMode_groupBox">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>20</y>
+          <width>321</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Mode</string>
+        </property>
+        <widget class="QRadioButton" name="AudioMode_Auto_radioBtn">
+         <property name="geometry">
+          <rect>
+           <x>31</x>
+           <y>31</y>
+           <width>111</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Auto</string>
+         </property>
+        </widget>
+        <widget class="QRadioButton" name="AudioMode_Menu_radioBtn">
+         <property name="geometry">
+          <rect>
+           <x>180</x>
+           <y>30</y>
+           <width>91</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Manual</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="Audio_captureTime_groupBox">
+        <property name="geometry">
+         <rect>
+          <x>319</x>
+          <y>20</y>
+          <width>171</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Capture Time</string>
+        </property>
+        <widget class="QWidget" name="layoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>30</y>
+           <width>65</width>
+           <height>25</height>
+          </rect>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <widget class="QSpinBox" name="Audio_captureTime_spinBox"/>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_29">
+            <property name="text">
+             <string>S</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="Audio_debugOptions_groupBox">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>110</y>
+          <width>491</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Options</string>
+        </property>
+        <widget class="QCheckBox" name="Audio_debugInfo_checkBox">
+         <property name="geometry">
+          <rect>
+           <x>31</x>
+           <y>31</y>
+           <width>131</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Debug Info</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="Audio_dumpData_checkBox">
+         <property name="geometry">
+          <rect>
+           <x>180</x>
+           <y>30</y>
+           <width>121</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Dump Data</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="Audio_Logcat_checkBox">
+         <property name="geometry">
+          <rect>
+           <x>330</x>
+           <y>30</y>
+           <width>91</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Logcat</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="Audio_debugOutput_groupBox">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>200</y>
+          <width>491</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Output</string>
+        </property>
+        <widget class="QCheckBox" name="Audio_printDebug_checkBox">
+         <property name="geometry">
+          <rect>
+           <x>180</x>
+           <y>40</y>
+           <width>151</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Print Debug</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="Audio_createZip_checkBox">
+         <property name="geometry">
+          <rect>
+           <x>31</x>
+           <y>41</y>
+           <width>131</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Create Zip</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QPushButton" name="Audio_debugStart_btn">
+        <property name="geometry">
+         <rect>
+          <x>540</x>
+          <y>50</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color:#D5D5D5</string>
+        </property>
+        <property name="text">
+         <string>Start</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="Audio_debugStop_btn">
+        <property name="geometry">
+         <rect>
+          <x>540</x>
+          <y>110</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color:#D5D5D5</string>
+        </property>
+        <property name="text">
+         <string>Stop</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="Audio_dumpData_page">
+       <widget class="QGroupBox" name="groupBox_5">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>631</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Audio Data File</string>
+        </property>
+        <widget class="QLineEdit" name="Audio_dataFile_lineEdit">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>30</y>
+           <width>531</width>
+           <height>31</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="Audio_dataFile_Open_btn">
+         <property name="geometry">
+          <rect>
+           <x>550</x>
+           <y>30</y>
+           <width>71</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#D5D5D5</string>
+         </property>
+         <property name="text">
+          <string>Open</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_6">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>110</y>
+          <width>541</width>
+          <height>111</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Configuration</string>
+        </property>
+        <widget class="QWidget" name="layoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>21</x>
+           <y>41</y>
+           <width>156</width>
+           <height>55</height>
+          </rect>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <item>
+             <widget class="QLabel" name="labelRate">
+              <property name="text">
+               <string>Rate:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelByte">
+              <property name="text">
+               <string>Byte:</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <item>
+             <widget class="QComboBox" name="Audio_playRate_comboBox"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="Audio_playByte_comboBox"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="layoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>201</x>
+           <y>40</y>
+           <width>273</width>
+           <height>55</height>
+          </rect>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout">
+            <item>
+             <widget class="QLabel" name="labelChannel">
+              <property name="text">
+               <string>       Channel:   </string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelSelectChannel">
+              <property name="text">
+               <string>Select Channel:</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <item>
+             <widget class="QComboBox" name="Audio_playChannel_comboBox"/>
+            </item>
+            <item>
+             <widget class="QComboBox" name="Audio_SelectChannel_comboBox"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+       <widget class="QPushButton" name="Audio_dataFile_play_btn">
+        <property name="geometry">
+         <rect>
+          <x>560</x>
+          <y>130</y>
+          <width>71</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color:#D5D5D5</string>
+        </property>
+        <property name="text">
+         <string>Play</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="AmlAudio_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>380</y>
+        <width>911</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Terminal Log</string>
+      </property>
+      <widget class="QTextBrowser" name="AmlAudio_textBrowser">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>20</y>
+         <width>911</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:#F8F8F8</string>
+       </property>
+       <property name="placeholderText">
+        <string/>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="AmlDebugVideo_tab">
+     <attribute name="title">
+      <string>Video</string>
+     </attribute>
+     <widget class="QStackedWidget" name="AmlVideo_stackedWidget">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>10</y>
+        <width>741</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#F8F8F8</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="lineWidth">
+       <number>1</number>
+      </property>
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="Video_page1">
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>30</y>
+          <width>68</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>page 1</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="Video_btn1">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>100</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>start1</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="Video_page2">
+       <widget class="QLabel" name="label_4">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>40</y>
+          <width>68</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>page 2</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>110</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>btn2</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="AmlVideo_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>380</y>
+        <width>991</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Terminal Log</string>
+      </property>
+      <widget class="QTextBrowser" name="AmlVideo_textBrowser">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>20</y>
+         <width>911</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:#F8F8F8</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QListWidget" name="AmlVideo_listWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>161</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#F8F8F8</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>1</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>2</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>3</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>4</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>5</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>6</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>7</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>8</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>9</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>10</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>11</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>12</string>
+       </property>
+      </item>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="AmlDebugCec_tab">
+     <attribute name="title">
+      <string>Cec</string>
+     </attribute>
+     <widget class="QStackedWidget" name="AmlCec_stackedWidget">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>10</y>
+        <width>741</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#F8F8F8</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="lineWidth">
+       <number>1</number>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="Cec_page_1">
+       <widget class="QGroupBox" name="Cec_debugOptions_groupBox">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>30</y>
+          <width>311</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Options</string>
+        </property>
+        <widget class="QCheckBox" name="Cec_option_bugreport_checkBox">
+         <property name="geometry">
+          <rect>
+           <x>31</x>
+           <y>31</y>
+           <width>131</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>bugrepor</string>
+         </property>
+        </widget>
+        <widget class="QCheckBox" name="Cec_option_logcat_checkBox">
+         <property name="geometry">
+          <rect>
+           <x>180</x>
+           <y>30</y>
+           <width>121</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>logcat</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="Cec_operation_groupBox">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>130</y>
+          <width>311</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Operation</string>
+        </property>
+        <widget class="QPushButton" name="Cec_setprop_btn">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>30</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#D5D5D5</string>
+         </property>
+         <property name="text">
+          <string>Setprop</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="Cec_reboot_btn">
+         <property name="geometry">
+          <rect>
+           <x>160</x>
+           <y>30</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#D5D5D5</string>
+         </property>
+         <property name="text">
+          <string>reboot</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="Cec_control_groupBox">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>230</y>
+          <width>311</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Control</string>
+        </property>
+        <widget class="QPushButton" name="Cec_startDebug_btn">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>30</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#D5D5D5</string>
+         </property>
+         <property name="text">
+          <string>Start</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="Cec_StopDebug_btn">
+         <property name="geometry">
+          <rect>
+           <x>160</x>
+           <y>30</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#D5D5D5</string>
+         </property>
+         <property name="text">
+          <string>Stop</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_3">
+        <property name="geometry">
+         <rect>
+          <x>330</x>
+          <y>30</y>
+          <width>411</width>
+          <height>281</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Tips:</string>
+        </property>
+        <widget class="QTextBrowser" name="textBrowser">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>20</y>
+           <width>381</width>
+           <height>241</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#FFFFE0</string>
+         </property>
+         <property name="html">
+          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10.8pt; font-weight:600; color:#000000;&quot;&gt;1.&lt;/span&gt;&lt;span style=&quot; font-size:10.8pt; color:#000000;&quot;&gt;click the [&lt;/span&gt;&lt;span style=&quot; font-size:10.8pt; font-weight:600; color:#5555ff;&quot;&gt;setprop&lt;/span&gt;&lt;span style=&quot; font-size:10.8pt; color:#000000;&quot;&gt;];&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10.8pt; font-weight:600; color:#000000;&quot;&gt;2.&lt;/span&gt;&lt;span style=&quot; font-size:10.8pt; color:#000000;&quot;&gt;click the [&lt;/span&gt;&lt;span style=&quot; font-size:10.8pt; font-weight:600; color:#5555ff;&quot;&gt;reboot&lt;/span&gt;&lt;span style=&quot; font-size:10.8pt; color:#000000;&quot;&gt;];&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10.8pt; font-weight:600; color:#000000;&quot;&gt;3.&lt;/span&gt;&lt;span style=&quot; font-size:10.8pt; color:#000000;&quot;&gt;click the [&lt;/span&gt;&lt;span style=&quot; font-size:10.8pt; font-weight:600; color:#5555ff;&quot;&gt;start&lt;/span&gt;&lt;span style=&quot; font-size:10.8pt; color:#000000;&quot;&gt;] after reboot finish;&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10.8pt; font-weight:600; color:#000000;&quot;&gt;4.&lt;/span&gt;&lt;span style=&quot; font-size:10.8pt; color:#000000;&quot;&gt;Reproduce the issue;&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10.8pt; font-weight:600; color:#000000;&quot;&gt;5.&lt;/span&gt;&lt;span style=&quot; font-size:10.8pt; color:#000000;&quot;&gt;click the [&lt;/span&gt;&lt;span style=&quot; font-size:10.8pt; font-weight:600; color:#5555ff;&quot;&gt;stop&lt;/span&gt;&lt;span style=&quot; font-size:10.8pt; color:#000000;&quot;&gt;], wait to finish&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="Cec_page2">
+       <widget class="QLabel" name="label_5">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>30</y>
+          <width>68</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>page 1</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="Cec_btn1">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>110</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>btn1</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="Cec_btn2">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>110</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>btn2</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="AmlCec_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>380</y>
+        <width>911</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Terminal Log</string>
+      </property>
+      <widget class="QTextBrowser" name="AmlCec_textBrowser">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>20</y>
+         <width>911</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:#F8F8F8</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QListWidget" name="AmlCec_listWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>161</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#F8F8F8</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>Debug Info</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>video</string>
+       </property>
+      </item>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="AmlDebugSource_tab">
+     <attribute name="title">
+      <string>Source</string>
+     </attribute>
+     <widget class="QListWidget" name="AmlVideo_listWidget_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>161</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#F8F8F8</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>Push</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Pull</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QStackedWidget" name="AmlVideo_stackedWidget_4">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>10</y>
+        <width>741</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#F8F8F8</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="lineWidth">
+       <number>1</number>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="Video_debugInfo_page_4">
+       <widget class="QGroupBox" name="groupBox_11">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>30</y>
+          <width>491</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>System</string>
+        </property>
+        <widget class="QPushButton" name="pushButton_12">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>30</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#D5D5D5</string>
+         </property>
+         <property name="text">
+          <string>Remount</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_13">
+         <property name="geometry">
+          <rect>
+           <x>150</x>
+           <y>30</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#D5D5D5</string>
+         </property>
+         <property name="text">
+          <string>Reboot</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_14">
+         <property name="geometry">
+          <rect>
+           <x>290</x>
+           <y>30</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#D5D5D5</string>
+         </property>
+         <property name="text">
+          <string>Close AV</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QPushButton" name="Source_testbtn">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>190</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>test</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="Video_dumpData_page_4"/>
+     </widget>
+     <widget class="QGroupBox" name="AmlVideo_groupBox_6">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>380</y>
+        <width>911</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Terminal Log</string>
+      </property>
+      <widget class="QTextBrowser" name="AmlSysop_textBrowser_2">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>20</y>
+         <width>911</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:#F8F8F8</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="AmlDebugOthers_tab">
+     <attribute name="title">
+      <string>Others</string>
+     </attribute>
+     <widget class="QStackedWidget" name="AmlVideo_stackedWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>10</y>
+        <width>741</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#F8F8F8</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="lineWidth">
+       <number>1</number>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="Video_debugInfo_page_3">
+       <widget class="QGroupBox" name="groupBox_10">
+        <property name="geometry">
+         <rect>
+          <x>570</x>
+          <y>10</y>
+          <width>131</width>
+          <height>331</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>System</string>
+        </property>
+        <widget class="QPushButton" name="Sys_Push_remount_btn">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>30</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#D5D5D5</string>
+         </property>
+         <property name="text">
+          <string>Remount</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="Sys_Push_reboot_btn">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>70</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#D5D5D5</string>
+         </property>
+         <property name="text">
+          <string>Reboot</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="Sys_Push_closeAVB_btn">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>110</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#D5D5D5</string>
+         </property>
+         <property name="text">
+          <string>Close AVB</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="groupBox">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>10</y>
+          <width>571</width>
+          <height>331</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Push to Device</string>
+        </property>
+        <widget class="QWidget" name="layoutWidget_2">
+         <property name="geometry">
+          <rect>
+           <x>280</x>
+           <y>60</y>
+           <width>188</width>
+           <height>27</height>
+          </rect>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QLabel" name="label_18">
+            <property name="text">
+             <string>&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="System_PushDolbyDtsDst_lineEdit"/>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QLabel" name="label_6">
+         <property name="geometry">
+          <rect>
+           <x>330</x>
+           <y>30</y>
+           <width>101</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Destination</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_2">
+         <property name="geometry">
+          <rect>
+           <x>130</x>
+           <y>30</y>
+           <width>101</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Source path</string>
+         </property>
+        </widget>
+        <widget class="QWidget" name="layoutWidget_3">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>50</y>
+           <width>248</width>
+           <height>219</height>
+          </rect>
+         </property>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Dolby:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="System_PushDolbySrc_lineEdit"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_7">
+            <property name="text">
+             <string>Dts:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="System_PushDtsSrc_lineEdit"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_8">
+            <property name="text">
+             <string>Ms12:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="System_PushMs12Src_lineEdit"/>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_9">
+            <property name="text">
+             <string>Custom1:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLineEdit" name="System_PushCustom1Src_lineEdit"/>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_10">
+            <property name="text">
+             <string>Custom2:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLineEdit" name="System_PushCustom2Src_lineEdit"/>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="label_11">
+            <property name="text">
+             <string>Custom3:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QLineEdit" name="System_PushCustom3Src_lineEdit"/>
+          </item>
+          <item row="6" column="0">
+           <widget class="QLabel" name="label_12">
+            <property name="text">
+             <string>Custom4:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QLineEdit" name="System_PushCustom4Src_lineEdit"/>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="layoutWidget_4">
+         <property name="geometry">
+          <rect>
+           <x>280</x>
+           <y>110</y>
+           <width>188</width>
+           <height>155</height>
+          </rect>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_14">
+            <property name="text">
+             <string>&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="System_PushMs12Dst_lineEdit"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_15">
+            <property name="text">
+             <string>&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="System_PushCustom1Dst_lineEdit"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_16">
+            <property name="text">
+             <string>&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="System_PushCustom2Dst_lineEdit"/>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_17">
+            <property name="text">
+             <string>&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLineEdit" name="System_PushCustom3Dst_lineEdit"/>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_30">
+            <property name="text">
+             <string>&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLineEdit" name="System_PushCustom4Dst_lineEdit"/>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QPushButton" name="System_PushDolbyDtsPush_Button">
+         <property name="geometry">
+          <rect>
+           <x>480</x>
+           <y>60</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#D5D5D5</string>
+         </property>
+         <property name="text">
+          <string>Push</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="System_PushMs12Push_Button">
+         <property name="geometry">
+          <rect>
+           <x>480</x>
+           <y>110</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#D5D5D5</string>
+         </property>
+         <property name="text">
+          <string>Push</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="System_PushCustom1Push_Button">
+         <property name="geometry">
+          <rect>
+           <x>480</x>
+           <y>140</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#D5D5D5</string>
+         </property>
+         <property name="text">
+          <string>Push</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="System_PushCustom2Push_Button">
+         <property name="geometry">
+          <rect>
+           <x>480</x>
+           <y>170</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#D5D5D5</string>
+         </property>
+         <property name="text">
+          <string>Push</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="System_PushCustom3Push_Button">
+         <property name="geometry">
+          <rect>
+           <x>480</x>
+           <y>200</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#D5D5D5</string>
+         </property>
+         <property name="text">
+          <string>Push</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="System_PushCustom4Push_Button">
+         <property name="geometry">
+          <rect>
+           <x>480</x>
+           <y>230</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#D5D5D5</string>
+         </property>
+         <property name="text">
+          <string>Push</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="Video_dumpData_page_3">
+       <widget class="QGroupBox" name="groupBox_2">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>10</y>
+          <width>571</width>
+          <height>331</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Pull to Local</string>
+        </property>
+        <widget class="QLabel" name="label_27">
+         <property name="geometry">
+          <rect>
+           <x>330</x>
+           <y>30</y>
+           <width>91</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Destination</string>
+         </property>
+        </widget>
+        <widget class="QWidget" name="layoutWidget_5">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>50</y>
+           <width>248</width>
+           <height>123</height>
+          </rect>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_13">
+            <property name="text">
+             <string>Custom1:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="System_PullCustom1Src_lineEdit"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_19">
+            <property name="text">
+             <string>Custom2:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="System_PullCustom2Src_lineEdit"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_20">
+            <property name="text">
+             <string>Custom3:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="System_PullCustom3Src_lineEdit"/>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_21">
+            <property name="text">
+             <string>Custom4:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLineEdit" name="System_PullCustom4Src_lineEdit"/>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="layoutWidget_6">
+         <property name="geometry">
+          <rect>
+           <x>280</x>
+           <y>50</y>
+           <width>188</width>
+           <height>123</height>
+          </rect>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_23">
+            <property name="text">
+             <string>&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="System_PullCustom1Dst_lineEdit"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_24">
+            <property name="text">
+             <string>&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="System_PullCustom2Dst_lineEdit"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_25">
+            <property name="text">
+             <string>&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="System_PullCustom3Dst_lineEdit"/>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_26">
+            <property name="text">
+             <string>&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLineEdit" name="System_PullCustom4Dst_lineEdit"/>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QLabel" name="label_22">
+         <property name="geometry">
+          <rect>
+           <x>130</x>
+           <y>30</y>
+           <width>101</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Source path</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="System_PullCustom1Pull_Button">
+         <property name="geometry">
+          <rect>
+           <x>480</x>
+           <y>50</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#D5D5D5</string>
+         </property>
+         <property name="text">
+          <string>Pull</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="System_PullCustom2Pull_Button">
+         <property name="geometry">
+          <rect>
+           <x>480</x>
+           <y>80</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#D5D5D5</string>
+         </property>
+         <property name="text">
+          <string>Pull</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="System_PullCustom3Pull_Button">
+         <property name="geometry">
+          <rect>
+           <x>480</x>
+           <y>110</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#D5D5D5</string>
+         </property>
+         <property name="text">
+          <string>Pull</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="System_PullCustom4Pull_Button">
+         <property name="geometry">
+          <rect>
+           <x>480</x>
+           <y>140</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#D5D5D5</string>
+         </property>
+         <property name="text">
+          <string>Pull</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_12">
+        <property name="geometry">
+         <rect>
+          <x>570</x>
+          <y>10</y>
+          <width>131</width>
+          <height>331</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>System</string>
+        </property>
+        <widget class="QPushButton" name="Sys_Pull_reboot_btn">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>70</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#D5D5D5</string>
+         </property>
+         <property name="text">
+          <string>Reboot</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="Sys_Pull_closeAVB_btn">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>110</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#D5D5D5</string>
+         </property>
+         <property name="text">
+          <string>Close AVB</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="Sys_Pull_remount_btn">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>30</y>
+           <width>93</width>
+           <height>28</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#D5D5D5</string>
+         </property>
+         <property name="text">
+          <string>Remount</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="AmlVideo_groupBox_5">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>380</y>
+        <width>911</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Terminal Log</string>
+      </property>
+      <widget class="QTextBrowser" name="AmlSysop_textBrowser">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>20</y>
+         <width>911</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:#F8F8F8</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QListWidget" name="AmlVideo_listWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>161</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#F8F8F8</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>File Push</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>File Pull</string>
+       </property>
+      </item>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>953</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+   </widget>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>AmlAudio_listWidget</sender>
+   <signal>currentRowChanged(int)</signal>
+   <receiver>AmlAudio_stackedWidget</receiver>
+   <slot>setCurrentIndex(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>86</x>
+     <y>165</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>182</x>
+     <y>219</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>AmlVideo_listWidget_3</sender>
+   <signal>currentRowChanged(int)</signal>
+   <receiver>AmlVideo_stackedWidget_3</receiver>
+   <slot>setCurrentIndex(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>119</x>
+     <y>198</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>190</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>AmlHome_listWidget</sender>
+   <signal>currentRowChanged(int)</signal>
+   <receiver>AmlHome_stackedWidget</receiver>
+   <slot>setCurrentIndex(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>130</x>
+     <y>224</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>186</x>
+     <y>226</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>AmlVideo_listWidget</sender>
+   <signal>currentRowChanged(int)</signal>
+   <receiver>AmlVideo_stackedWidget</receiver>
+   <slot>setCurrentIndex(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>82</x>
+     <y>129</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>191</x>
+     <y>157</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
