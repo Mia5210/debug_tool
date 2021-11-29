@@ -27,7 +27,7 @@ class AmlDebugCecUi(AmlDebugBaseUi):
 
     def signals_connect_slots(self):
         self.m_mainUi.Cec_setprop_btn.clicked.connect(self.__click_setprop)
-        self.m_mainUi.Cec_reboot_btn.clicked.connect(AmlCommonUtils.adb_reboot)
+        self.m_mainUi.Cec_reboot_btn.clicked.connect(AmlCommonUtils.send_reboot_command)
         self.m_mainUi.Cec_startDebug_btn.clicked.connect(self.start_capture)
         self.m_mainUi.Cec_StopDebug_btn.clicked.connect(self.stop_capture)
         self.m_mainUi.Cec_option_logcat_checkBox.clicked[bool].connect(self.__click_optionsLogcat)

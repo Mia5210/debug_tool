@@ -1,8 +1,8 @@
 from threading import Thread
 import time, os
-
+import serial, serial.tools.list_ports
 from PyQt5.QtCore import QStringListModel
-
+import traceback
 from src.Home.aml_ini_parser_home import AmlParserIniHome
 from src.common.aml_debug_base_ui import AmlDebugBaseUi, AmlDebugModule
 from src.common.aml_common_utils import AmlCommonUtils
@@ -24,6 +24,9 @@ class AmlDebugHomeUi(AmlDebugBaseUi):
             self.m_captureMode = 0
             self.m_debugTime = 0
 
+    ser_parity = [serial.PARITY_NONE, serial.PARITY_ODD, serial.PARITY_EVEN, serial.PARITY_MARK,
+                       serial.PARITY_SPACE]
+
     def __init__(self, aml_ui):
         self.__m_debugCfg = AmlDebugHomeUi.AmlDebugHomeCfg()
         super(AmlDebugHomeUi, self).__init__(aml_ui, AmlCommonUtils.AML_DEBUG_MODULE_HOME)
@@ -31,6 +34,8 @@ class AmlDebugHomeUi(AmlDebugBaseUi):
         self.__stopFinishCnt = dict()
         self.__nowPullPcTimePath = ''
         self.__curTimeName = ''
+        #self.m_serial = serial.Serial()
+
 
     def init_display_ui(self):
         captureMode = self.m_iniPaser.getValueByKey(AmlParserIniHome.AML_PARSER_HOME_CAPTRUE_MODE)
@@ -78,13 +83,38 @@ class AmlDebugHomeUi(AmlDebugBaseUi):
         self.m_mainUi.Home_captureTime_spinBox.setEnabled(False)
         self.m_mainUi.Home_captureTime_spinBox.setProperty("value", 6)
         self.m_mainUi.Home_stopCapture_btn.setEnabled(False)
+        # adb device ui
+        self.__click_adbRefresh()
+        self.m_mainUi.Home_uartPortSeclt_groupBox.setEnabled(False)
+        #uart ui
+        self.m_mainUi.Home_uartBaudRate_comboBox.setCurrentText(str(self.m_iniPaser.getValueByKey(AmlParserIniHome.AML_PARSER_HOME_COM_BAUDRATE)))
+        self.m_mainUi.Home_uartDataBit_comboBox.setCurrentText(str(self.m_iniPaser.getValueByKey(AmlParserIniHome.AML_PARSER_HOME_COM_DATABITS)))
+        parity = self.m_iniPaser.getValueByKey(AmlParserIniHome.AML_PARSER_HOME_COM_PARITY)
+        paritv_indext=self.ser_parity.index(str(parity))
+        self.m_mainUi.Home_uartParity_comboBox.setCurrentIndex(int(paritv_indext))
+        self.m_mainUi.Home_uartStopBit_comboBox.setCurrentText(str(self.m_iniPaser.getValueByKey(AmlParserIniHome.AML_PARSER_HOME_COM_STOPBITS)))
+        self.m_mainUi.Home_uartXONXOFF_checkBox.setChecked(self.m_iniPaser.getValueByKey(AmlParserIniHome.AML_PARSER_HOME_COM_XONXOFF))
+        self.m_mainUi.Home_uartRTSCTS_checkBox.setChecked(self.m_iniPaser.getValueByKey(AmlParserIniHome.AML_PARSER_HOME_COM_RTSCTS))
+        self.m_mainUi.Home_uartDTRDSR_checkBox.setChecked(self.m_iniPaser.getValueByKey(AmlParserIniHome.AML_PARSER_HOME_COM_DTRDSR))
 
     def signals_connect_slots(self):
-        #adb device
+        #device connect
         self.m_mainUi.Home_adbDevSelect_comboBox.currentTextChanged[str].connect(self.__textChanged_selectAdbDev)
         self.m_mainUi.Home_adbDevRefresh_btn.clicked.connect(self.__click_adbRefresh)
         self.m_mainUi.Home_adbIpConnect_btn.clicked.connect(self.__click_adbConnect)
         self.m_mainUi.Home_adbIpAdress_lineEdit.textChanged.connect(self.__textChanged_adbIpAdress)
+        self.m_mainUi.Home_debugType_comboBox.currentTextChanged.connect(self.__textChanged_debugTypeSelect)
+        self.m_mainUi.Home_uartConnect_btn.clicked.connect(self.__click_uartConnect)
+        ####################
+        self.m_mainUi.Home_uartPort_comboBox.currentTextChanged[str].connect(self.__textChanged_uartPort)#port
+        self.m_mainUi.Home_uartBaudRate_comboBox.currentTextChanged[str].connect(self.__textChanged_uartBaudRate)#Baud rate
+        self.m_mainUi.Home_uartDataBit_comboBox.currentTextChanged[str].connect(self.__textChanged_uartDataBit)#Data bits
+        self.m_mainUi.Home_uartParity_comboBox.currentTextChanged.connect(self.__textChanged_paritySelect)#Parity
+        self.m_mainUi.Home_uartStopBit_comboBox.currentTextChanged[str].connect(self.__textChanged_uartStopBit)#stop Bits
+        self.m_mainUi.Home_uartDTRDSR_checkBox.clicked[bool].connect(self.__click_DTRDSR)#DTR/DSR
+        self.m_mainUi.Home_uartRTSCTS_checkBox.clicked[bool].connect(self.__click_RTSCTS)#RTS/CTS
+        self.m_mainUi.Home_uartXONXOFF_checkBox.clicked[bool].connect(self.__click_XONXOFF)#XON/XOFF
+        ###################
         # multi Modules
         self.m_mainUi.Home_audioModule_checkBox.clicked[bool].connect(self.__click_modulesAudio)
         self.m_mainUi.Home_videoModule_checkBox.clicked[bool].connect(self.__click_modulesVideo)
@@ -100,14 +130,49 @@ class AmlDebugHomeUi(AmlDebugBaseUi):
         self.m_mainUi.Home_stopCapture_btn.clicked.connect(self.__click_stop_capture)
         self.m_mainUi.Home_outputDir_btn.clicked.connect(self.__click_open_output)
 
+    ########################################################
+    def __textChanged_uartPort(self, value):#没有加参数
+        print(value)
+       # self.m_iniPaser.setValueByKey()
+    def __textChanged_uartBaudRate(self, value):
+        print(value)
+        self.m_iniPaser.setValueByKey(AmlParserIniHome.AML_PARSER_HOME_COM_BAUDRATE, int(value))
+    def __textChanged_uartDataBit(self, value):
+        print(value)
+        self.m_iniPaser.setValueByKey(AmlParserIniHome.AML_PARSER_HOME_COM_DATABITS, int(value))
+    def __textChanged_uartStopBit(self,value):
+        print(value)
+        self.m_iniPaser.setValueByKey(AmlParserIniHome.AML_PARSER_HOME_COM_STOPBITS, value)
+    def __click_DTRDSR(self, value):
+        print(value)
+        self.m_iniPaser.setValueByKey(AmlParserIniHome.AML_PARSER_HOME_COM_DTRDSR, value)
+    def __click_RTSCTS(self, value):
+        print(value)
+        self.m_iniPaser.setValueByKey(AmlParserIniHome.AML_PARSER_HOME_COM_RTSCTS, value)
+    def __click_XONXOFF(self, value):
+        print(value)
+        self.m_iniPaser.setValueByKey(AmlParserIniHome.AML_PARSER_HOME_COM_XONXOFF, value)
+    def __textChanged_paritySelect(self):
+        try:
+            print("current index :" + str(self.m_mainUi.Home_uartParity_comboBox.currentIndex()))
+            self.m_iniPaser.setValueByKey(AmlParserIniHome.AML_PARSER_HOME_COM_PARITY,
+                 self.ser_parity[self.m_mainUi.Home_uartParity_comboBox.currentIndex()])
+        except Exception as e:
+            traceback.print_exc()
+####################################################
     def __click_adbRefresh(self):
         self.log.i('refresh btn clicked')
         dev_list = self.__adb_dev_ui_refresh()
         if len(dev_list) > 0:
             cur_dev = self.m_mainUi.Home_adbDevSelect_comboBox.currentText()
             AmlCommonUtils.set_adb_cur_device(cur_dev)
+            # set the start button enable
+            self.m_mainUi.Audio_debugStart_btn.setEnabled(True)
+            self.m_mainUi.Home_debugConectStatus_label.setText("adb connet Success !!")
         else:
             AmlCommonUtils.set_adb_cur_device('')
+            # if find no device, set the start button disnable
+            self.m_mainUi.Audio_debugStart_btn.setEnabled(False)
 
     def __textChanged_selectAdbDev(self, value):
         self.log.d("adbDev textchanged")
@@ -116,6 +181,71 @@ class AmlDebugHomeUi(AmlDebugBaseUi):
     def __textChanged_adbIpAdress(self, value):
         self.log.d("ip adress change : " + value)
         self.m_iniPaser.setValueByKey(AmlParserIniHome.AML_PARSER_HOME_IP_ADDRESS, value)
+
+    def __textChanged_debugTypeSelect(self, value):
+        self.log.d("debug type change: " +value)
+        try:
+            if value == "adb connect":
+                if AmlCommonUtils.uart_cur_port != '':
+                    self.port_close()
+                    AmlCommonUtils.set_current_port('')
+                self.m_mainUi.Home_adbDevSelect_groupBox.setEnabled(True)
+                self.m_mainUi.Home_uartPortSeclt_groupBox.setEnabled(False)
+                self.__click_adbRefresh()
+            else:
+                if AmlCommonUtils.adb_cur_dev != '':
+                    AmlCommonUtils.set_adb_cur_device('')
+                self.m_mainUi.Home_adbDevSelect_groupBox.setEnabled(False)
+                self.m_mainUi.Home_uartPortSeclt_groupBox.setEnabled(True)
+                self.port_check()
+        except Exception as e:
+            traceback.print_exc()
+
+    def port_check(self):
+        try:
+            self.Com_Dict = { }
+            port_list = AmlCommonUtils.get_port_list()
+            self.m_mainUi.Home_uartPort_comboBox.clear()
+            if(len(port_list) > 0):
+                for port in port_list:
+                    self.Com_Dict["%s" % port[0]] = "%s" % port[1]
+                    self.m_mainUi.Home_uartPort_comboBox.addItem(port[0])
+            else:
+                print("can't not find COM !")
+        except Exception as e:
+            traceback.print_exc()
+
+    def port_close(self):
+        isclose = AmlCommonUtils.uart_disconnect()
+        if isclose:
+            self.m_mainUi.Home_debugConectStatus_label.setText("uart disConnect")
+            self.m_mainUi.Home_uartConnect_btn.setText("Connect")
+            AmlCommonUtils.set_current_port('')  # set burrent port
+
+    def __click_uartConnect(self):
+        try:
+            if self.m_mainUi.Home_uartConnect_btn.text() == "Disconnect":
+                self.port_close()
+            else:
+
+                isopend = AmlCommonUtils.uart_connect(self.m_mainUi.Home_uartPort_comboBox.currentText(),
+                                    int(self.m_mainUi.Home_uartBaudRate_comboBox.currentText()),
+                                    int(self.m_mainUi.Home_uartDataBit_comboBox.currentText()),
+                                    self.ser_parity[self.m_mainUi.Home_uartParity_comboBox.currentIndex()],
+                                    int(float(self.m_mainUi.Home_uartStopBit_comboBox.currentText())),
+                                    self.m_mainUi.Home_uartXONXOFF_checkBox.isChecked(),
+                                    self.m_mainUi.Home_uartRTSCTS_checkBox.isChecked(),
+                                    self.m_mainUi.Home_uartDTRDSR_checkBox.isChecked())
+                if isopend:
+                    print("--------open ok")
+                    AmlCommonUtils.set_current_port(self.m_mainUi.Home_uartPort_comboBox.currentText())#set burrent port
+                    print("set current port : " + str(self.m_mainUi.Home_uartPort_comboBox.currentText()))
+                    self.m_mainUi.Home_debugConectStatus_label.setText("uart connet Success !!")
+                    self.m_mainUi.Home_uartConnect_btn.setText("Disconnect")
+                else:
+                    self.m_mainUi.Home_debugConectStatus_label.setText("uart connet Fail !!")
+        except Exception as e:
+            traceback.print_exc()
 
     def __click_adbConnect(self):
         self.log.d("adb connect")

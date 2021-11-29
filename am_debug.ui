@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>953</width>
-    <height>641</height>
+    <height>634</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -79,7 +79,7 @@
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>161</width>
+        <width>131</width>
         <height>361</height>
        </rect>
       </property>
@@ -88,7 +88,7 @@
       </property>
       <item>
        <property name="text">
-        <string>adb device</string>
+        <string>device select</string>
        </property>
       </item>
       <item>
@@ -100,9 +100,9 @@
      <widget class="QStackedWidget" name="AmlHome_stackedWidget">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>150</x>
         <y>10</y>
-        <width>741</width>
+        <width>771</width>
         <height>361</height>
        </rect>
       </property>
@@ -126,10 +126,17 @@
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>20</y>
-          <width>371</width>
-          <height>301</height>
+          <y>90</y>
+          <width>341</width>
+          <height>251</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
         </property>
         <property name="title">
          <string>adb device select</string>
@@ -137,8 +144,8 @@
         <widget class="QComboBox" name="Home_adbDevSelect_comboBox">
          <property name="geometry">
           <rect>
-           <x>10</x>
-           <y>30</y>
+           <x>20</x>
+           <y>40</y>
            <width>181</width>
            <height>22</height>
           </rect>
@@ -147,8 +154,8 @@
         <widget class="QPushButton" name="Home_adbDevRefresh_btn">
          <property name="geometry">
           <rect>
-           <x>210</x>
-           <y>30</y>
+           <x>220</x>
+           <y>40</y>
            <width>93</width>
            <height>28</height>
           </rect>
@@ -163,8 +170,8 @@
         <widget class="QGroupBox" name="Home_adbIpAdress_groupBox">
          <property name="geometry">
           <rect>
-           <x>10</x>
-           <y>190</y>
+           <x>20</x>
+           <y>140</y>
            <width>291</width>
            <height>81</height>
           </rect>
@@ -205,71 +212,425 @@
         <widget class="QListView" name="Home_adbDev_listView">
          <property name="geometry">
           <rect>
-           <x>10</x>
-           <y>70</y>
+           <x>20</x>
+           <y>80</y>
            <width>291</width>
-           <height>111</height>
+           <height>51</height>
           </rect>
          </property>
         </widget>
        </widget>
-       <widget class="QLabel" name="label_33">
+       <widget class="QGroupBox" name="groupBox_8">
         <property name="geometry">
          <rect>
-          <x>520</x>
-          <y>70</y>
-          <width>141</width>
-          <height>19</height>
+          <x>20</x>
+          <y>10</y>
+          <width>711</width>
+          <height>81</height>
          </rect>
         </property>
-        <property name="frameShape">
-         <enum>QFrame::Box</enum>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
         </property>
-        <property name="text">
-         <string/>
+        <property name="title">
+         <string>Configuration</string>
         </property>
+        <widget class="QLabel" name="label_28">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>40</y>
+           <width>68</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>mode :</string>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="Home_debugType_comboBox">
+         <property name="geometry">
+          <rect>
+           <x>80</x>
+           <y>40</y>
+           <width>131</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string>adb connect</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>uart connect</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QLabel" name="label_33">
+         <property name="geometry">
+          <rect>
+           <x>240</x>
+           <y>40</y>
+           <width>68</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>status :</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="Home_debugConectStatus_label">
+         <property name="geometry">
+          <rect>
+           <x>320</x>
+           <y>40</y>
+           <width>231</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Box</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
        </widget>
-       <widget class="QLabel" name="label_34">
+       <widget class="QGroupBox" name="Home_uartPortSeclt_groupBox">
         <property name="geometry">
          <rect>
-          <x>440</x>
-          <y>70</y>
-          <width>71</width>
-          <height>16</height>
+          <x>360</x>
+          <y>90</y>
+          <width>371</width>
+          <height>251</height>
          </rect>
         </property>
-        <property name="text">
-         <string>device:</string>
+        <property name="font">
+         <font>
+          <pointsize>11</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
         </property>
-       </widget>
-       <widget class="QLabel" name="label_35">
-        <property name="geometry">
-         <rect>
-          <x>440</x>
-          <y>40</y>
-          <width>71</width>
-          <height>16</height>
-         </rect>
+        <property name="title">
+         <string>uart port select</string>
         </property>
-        <property name="text">
-         <string>Mode  :</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_36">
-        <property name="geometry">
-         <rect>
-          <x>520</x>
-          <y>40</y>
-          <width>141</width>
-          <height>19</height>
-         </rect>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::Box</enum>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
+        <widget class="QLabel" name="label_31">
+         <property name="geometry">
+          <rect>
+           <x>11</x>
+           <y>38</y>
+           <width>51</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Port:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_32">
+         <property name="geometry">
+          <rect>
+           <x>11</x>
+           <y>71</y>
+           <width>91</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Baud rate:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_41">
+         <property name="geometry">
+          <rect>
+           <x>11</x>
+           <y>104</y>
+           <width>91</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Data bits:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_42">
+         <property name="geometry">
+          <rect>
+           <x>11</x>
+           <y>137</y>
+           <width>71</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Parity:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_43">
+         <property name="geometry">
+          <rect>
+           <x>11</x>
+           <y>170</y>
+           <width>91</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Stop bits:</string>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="Home_uartPort_comboBox">
+         <property name="geometry">
+          <rect>
+           <x>109</x>
+           <y>38</y>
+           <width>231</width>
+           <height>19</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="Home_uartBaudRate_comboBox">
+         <property name="geometry">
+          <rect>
+           <x>109</x>
+           <y>71</y>
+           <width>101</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string>110</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>300</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>600</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>1200</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>2400</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>4800</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>9600</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>14400</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>19200</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>38400</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>57600</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>115200</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>230400</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>380400</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>460800</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>921600</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QComboBox" name="Home_uartDataBit_comboBox">
+         <property name="geometry">
+          <rect>
+           <x>109</x>
+           <y>104</y>
+           <width>101</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string>5</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>6</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>7</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>8</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QComboBox" name="Home_uartParity_comboBox">
+         <property name="geometry">
+          <rect>
+           <x>109</x>
+           <y>137</y>
+           <width>101</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string>None</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Odd</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Even</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Mark</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Space</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QComboBox" name="Home_uartStopBit_comboBox">
+         <property name="geometry">
+          <rect>
+           <x>109</x>
+           <y>170</y>
+           <width>101</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string>1</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>1.5</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>2</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QGroupBox" name="Home_uartFlowCtrl_groupBox">
+         <property name="geometry">
+          <rect>
+           <x>230</x>
+           <y>70</y>
+           <width>121</width>
+           <height>121</height>
+          </rect>
+         </property>
+         <property name="title">
+          <string>Flow Control</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <widget class="QCheckBox" name="Home_uartDTRDSR_checkBox">
+            <property name="text">
+             <string>DTR/DSR</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="Home_uartRTSCTS_checkBox">
+            <property name="text">
+             <string>RTS/CTS</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="Home_uartXONXOFF_checkBox">
+            <property name="text">
+             <string>XON/XOFF</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QPushButton" name="Home_uartConnect_btn">
+         <property name="geometry">
+          <rect>
+           <x>250</x>
+           <y>200</y>
+           <width>101</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color:#D5D5D5</string>
+         </property>
+         <property name="text">
+          <string>Connect</string>
+         </property>
+        </widget>
        </widget>
       </widget>
       <widget class="QWidget" name="Home_mulModules_page">
@@ -673,7 +1034,7 @@
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>161</width>
+        <width>131</width>
         <height>361</height>
        </rect>
       </property>
@@ -697,9 +1058,9 @@
      <widget class="QStackedWidget" name="AmlAudio_stackedWidget">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>150</x>
         <y>10</y>
-        <width>741</width>
+        <width>771</width>
         <height>361</height>
        </rect>
       </property>
@@ -1111,9 +1472,9 @@
      <widget class="QStackedWidget" name="AmlVideo_stackedWidget">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>150</x>
         <y>10</y>
-        <width>741</width>
+        <width>771</width>
         <height>361</height>
        </rect>
       </property>
@@ -1130,7 +1491,7 @@
        <number>1</number>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>13</number>
       </property>
       <widget class="QWidget" name="Video_page1">
        <widget class="QLabel" name="label_3">
@@ -1188,6 +1549,277 @@
         </property>
        </widget>
       </widget>
+      <widget class="QWidget" name="page">
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>70</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>page 3</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_2">
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>100</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>page 4</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_3">
+       <widget class="QPushButton" name="pushButton_4">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>100</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>page 5</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_4">
+       <widget class="QPushButton" name="pushButton_5">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>100</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>page 6</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_5">
+       <widget class="QPushButton" name="pushButton_6">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>110</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>page 7</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_6">
+       <widget class="QPushButton" name="pushButton_7">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>90</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>page8</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_7">
+       <widget class="QPushButton" name="pushButton_8">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>page 9</string>
+        </property>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_4">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>60</y>
+          <width>461</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Option</string>
+        </property>
+        <widget class="QRadioButton" name="radioButton">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>40</y>
+           <width>121</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>dump_filter</string>
+         </property>
+        </widget>
+        <widget class="QRadioButton" name="radioButton_2">
+         <property name="geometry">
+          <rect>
+           <x>160</x>
+           <y>40</y>
+           <width>141</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>dump_register</string>
+         </property>
+        </widget>
+        <widget class="QRadioButton" name="radioButton_3">
+         <property name="geometry">
+          <rect>
+           <x>320</x>
+           <y>40</y>
+           <width>111</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>ts_setting</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_7">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>170</y>
+          <width>151</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>collect TS/ES</string>
+        </property>
+        <widget class="QRadioButton" name="radioButton_4">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>40</y>
+           <width>102</width>
+           <height>19</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>collect</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QPushButton" name="pushButton_10">
+        <property name="geometry">
+         <rect>
+          <x>530</x>
+          <y>90</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>start</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_8">
+       <widget class="QPushButton" name="pushButton_9">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>100</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>page 10</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_9">
+       <widget class="QPushButton" name="pushButton_11">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>40</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>page 11</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_10">
+       <widget class="QPushButton" name="pushButton_15">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>40</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>page 12</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_11">
+       <widget class="QPushButton" name="pushButton_16">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>70</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>page 13</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_12">
+       <widget class="QPushButton" name="pushButton_17">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>50</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>page 14</string>
+        </property>
+       </widget>
+      </widget>
      </widget>
      <widget class="QGroupBox" name="AmlVideo_groupBox">
       <property name="geometry">
@@ -1220,7 +1852,7 @@
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>161</width>
+        <width>131</width>
         <height>361</height>
        </rect>
       </property>
@@ -1229,62 +1861,42 @@
       </property>
       <item>
        <property name="text">
-        <string>1</string>
+        <string>All</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>2</string>
+        <string>display</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>3</string>
+        <string>video decoder</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>4</string>
+        <string>vdin</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>5</string>
+        <string>demux</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>6</string>
+        <string>demod</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>7</string>
+        <string>tvafe</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>8</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>9</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>10</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>11</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>12</string>
+        <string>tuner</string>
        </property>
       </item>
      </widget>
@@ -1296,9 +1908,9 @@
      <widget class="QStackedWidget" name="AmlCec_stackedWidget">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>150</x>
         <y>10</y>
-        <width>741</width>
+        <width>771</width>
         <height>361</height>
        </rect>
       </property>
@@ -1558,7 +2170,7 @@ p, li { white-space: pre-wrap; }
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>161</width>
+        <width>131</width>
         <height>361</height>
        </rect>
       </property>
@@ -1586,7 +2198,7 @@ p, li { white-space: pre-wrap; }
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>161</width>
+        <width>131</width>
         <height>361</height>
        </rect>
       </property>
@@ -1607,9 +2219,9 @@ p, li { white-space: pre-wrap; }
      <widget class="QStackedWidget" name="AmlVideo_stackedWidget_4">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>150</x>
         <y>10</y>
-        <width>741</width>
+        <width>771</width>
         <height>361</height>
        </rect>
       </property>
@@ -1740,9 +2352,9 @@ p, li { white-space: pre-wrap; }
      <widget class="QStackedWidget" name="AmlVideo_stackedWidget_3">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>150</x>
         <y>10</y>
-        <width>741</width>
+        <width>771</width>
         <height>361</height>
        </rect>
       </property>
@@ -2427,7 +3039,7 @@ p, li { white-space: pre-wrap; }
        <rect>
         <x>10</x>
         <y>10</y>
-        <width>161</width>
+        <width>131</width>
         <height>361</height>
        </rect>
       </property>

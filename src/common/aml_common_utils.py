@@ -4,6 +4,8 @@ import subprocess
 import zipfile
 import shutil
 import traceback
+import serial, serial.tools.list_ports
+from PyQt5.QtCore import QTimer
 
 RET_VAL_SUCCESS         = 0
 RET_VAL_FAIL            = -1
@@ -40,7 +42,9 @@ class AmlCommonUtils():
 
     log_func = print
     adb_cur_dev = ''
+    uart_cur_port = ''
     current_tab_index = 0
+    m_serial = serial.Serial()
 
     def log(info, level='D'):
         if AmlCommonUtils.log_func == print:
@@ -57,6 +61,9 @@ class AmlCommonUtils():
 
     def set_adb_cur_device(dev):
         AmlCommonUtils.adb_cur_dev = dev
+
+    def set_current_port(com):
+        AmlCommonUtils.uart_cur_port  = com
 
     def set_current_tab_index(index):
         print('index : ' + str(index))
@@ -146,11 +153,28 @@ class AmlCommonUtils():
     def adb_root():
         return AmlCommonUtils.exe_adb_cmd('root', True)
 
+    def uart_root():
+        return AmlCommonUtils.uart_data_send('su')
+
     def adb_remount():
         return AmlCommonUtils.exe_adb_cmd('remount', True)
 
+    def adb_remount():
+        return AmlCommonUtils.exe_adb_cmd('remount', True)
+
+    def send_reboot_command():
+        if AmlCommonUtils.adb_cur_dev != '':
+            print('in adb way')
+            return AmlCommonUtils.exe_adb_cmd('reboot', True)
+        else:
+            print('in uart way')
+            return AmlCommonUtils.uart_data_send('reboot')
+
     def adb_reboot():
         return AmlCommonUtils.exe_adb_cmd('reboot', True)
+
+    #def uart_reboot():
+       # return AmlCommonUtils.data_send('reboot')
 
     def adb_connect_by_ip(ip):
         connect_ip_cmd = 'adb connect ' + ip
@@ -271,3 +295,85 @@ class AmlCommonUtils():
         ini.set(section, 'cur_debug_ip', socket.gethostbyname(hostname))
         with open(path + '\\snapshot.ini', 'w+',encoding='utf-8') as file:
             ini.write(file)
+
+    #get com list
+    def get_port_list():
+        try:
+            port_list = list(serial.tools.list_ports.comports())
+            if len(port_list) == 0:
+                print("no COM !")
+        except Exception as e:
+            traceback.print_exc()
+        return port_list
+
+    #open com
+    def uart_connect(port, baudrate, bytesize, parity, stopbits, xonxoff, rtscts, dsrdtr):
+        AmlCommonUtils.serial_config_init(port, baudrate, bytesize, parity, stopbits, xonxoff, rtscts, dsrdtr)
+        try:
+            AmlCommonUtils.m_serial.open()
+            if AmlCommonUtils.m_serial.isOpen() == True:
+                print("--------com open ok")
+                AmlCommonUtils.uart_cur_port = port
+                return True
+            else:
+                AmlCommonUtils.uart_cur_port = ''
+                return False
+        except Exception as e:
+            traceback.print_exc()
+
+
+    def serial_config_init(port, baudrate, bytesize, parity, stopbits, xonxoff, rtscts, dsrdtr):
+        AmlCommonUtils.m_serial.port     = port
+        AmlCommonUtils.m_serial.baudrate = baudrate
+        AmlCommonUtils.m_serial.bytesize = bytesize
+        AmlCommonUtils.m_serial.parity   = parity
+        AmlCommonUtils.m_serial.stopbits = stopbits
+        AmlCommonUtils.m_serial.xonxoff  = xonxoff
+        AmlCommonUtils.m_serial.rtscts   = rtscts
+        AmlCommonUtils.m_serial.dsrdtr   = dsrdtr
+
+    #close com
+    def uart_disconnect():
+        if AmlCommonUtils.m_serial.isOpen():
+            AmlCommonUtils.m_serial.close()
+        if not AmlCommonUtils.m_serial.isOpen():
+            print("------close uart ok")
+            AmlCommonUtils.uart_cur_port = ''
+            return True
+        else:
+            print("------close uart fail")
+            return False
+
+    #reveive data
+    def uart_data_receive(self):
+        try:
+            num = AmlCommonUtils.m_serial.inWaiting()
+            if num > 0:
+                data = AmlCommonUtils.m_serial.read(num)
+                num = len(data)
+                #self.plainTextEdit_2.insertPlainText(data.decode('iso-889-1'))
+                print(data.decode('iso-889-1'))
+                #设置滚动条位于最底
+                #text_cursor = self.plainTextEdit_2.textCursor()
+                #text_cursor.movePosition(text_cursor.End)
+                #self.plainTextEdit_2.setTextCursor(text_cursor)
+        except Exception as e:
+            traceback.print_exc()
+
+    #send data
+    def uart_data_send(data):
+        try:
+            if AmlCommonUtils.m_serial.isOpen():
+                print('send command：' + data)
+                #if data == 'ctrl c':
+                    #print('发送终止信号')
+                    #停止logcat
+                    #send_data = bytes.fromhex('03')
+                    #AmlCommonUtils.m_serial.write(send_data)
+                #else:
+                send_data = data + '\r\n'
+                AmlCommonUtils.m_serial.write(send_data.encode('utf-8'))
+            else:
+                print("com not open!!")
+        except Exception as e:
+            traceback.print_exc()

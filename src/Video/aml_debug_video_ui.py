@@ -10,7 +10,6 @@ def instance(aml_ui):
 class AmlDebugVideoUi(AmlDebugBaseUi):
     def __init__(self, aml_ui):
         super(AmlDebugVideoUi, self).__init__(aml_ui, AmlCommonUtils.AML_DEBUG_MODULE_VIDEO)
-        self.__m_stop_thread = False
 
     def init_display_ui(self):
         self.m_mainUi.xxx.setText(self.m_iniPaser.getValueByKey(AmlParserIniSysOperation.AML_PARSER_SYS_OPERAT_PUSH_DOLBY_SRC_PATH))

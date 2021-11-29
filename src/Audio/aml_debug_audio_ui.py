@@ -34,7 +34,7 @@ class AmlDebugAudioUi(AmlDebugBaseUi):
             self.m_mainUi.Audio_captureTime_groupBox.setEnabled(True)
         else:
             self.log.e('E init_display_ui: Not supported capture mode:' + str(mode) + ' !!!')
-
+        self.m_mainUi.Audio_debugStop_btn.setEnabled(False)
         self.m_mainUi.Audio_debugInfo_checkBox.setChecked(self.m_iniPaser.getValueByKey(AmlParserIniAudio.AML_PARSER_AUDIO_DEBUG_INFO))
         self.m_mainUi.Audio_dumpData_checkBox.setChecked(self.m_iniPaser.getValueByKey(AmlParserIniAudio.AML_PARSER_AUDIO_DUMP_DATA))
         self.m_mainUi.Audio_Logcat_checkBox.setChecked(self.m_iniPaser.getValueByKey(AmlParserIniAudio.AML_PARSER_AUDIO_LOGCAT))
@@ -65,6 +65,7 @@ class AmlDebugAudioUi(AmlDebugBaseUi):
         self.m_mainUi.Audio_captureTime_spinBox.valueChanged[int].connect(self.__changed_captureTime)
         self.m_mainUi.Audio_printDebug_checkBox.clicked[bool].connect(self.__click_PrintDebugEnable)
         self.m_mainUi.Audio_createZip_checkBox.clicked[bool].connect(self.__click_CreateZipEnable)
+        #audio play
         self.m_mainUi.Audio_dataFile_play_btn.clicked.connect(self.__click_play_toggle)
         self.m_mainUi.Audio_playChannel_comboBox.currentTextChanged.connect(self.__textChanged_PlayAudioChannel)
         self.m_mainUi.Audio_playByte_comboBox.currentTextChanged.connect(self.__textChanged_PlayAudioByte)
@@ -197,8 +198,11 @@ class AmlDebugAudioUi(AmlDebugBaseUi):
 
     def __startCaptureInfo(self, curTimeName):
         if self.__homeStartClick == False:
-            AmlCommonUtils.adb_root()
-            AmlCommonUtils.adb_remount()
+            if AmlCommonUtils.adb_cur_dev != '':
+                AmlCommonUtils.adb_root()
+                AmlCommonUtils.adb_remount()
+           # else:
+
         self.audioDebug.start_capture(curTimeName, self.__callback_startCaptureFinish)
 
     def __callback_startCaptureFinish(self):
